@@ -1,3 +1,4 @@
+let Distance = 0
 let LFSR = 0
 let LFSL = 0
 function Full_Stop () {
@@ -13,6 +14,14 @@ function Soft_Left () {
     maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 30)
     basic.pause(100)
+}
+function Distance_Stop () {
+    maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 50)
+    basic.pause(200)
+    Distance = maqueen.Ultrasonic(PingUnit.Centimeters)
+    while (Distance < 10) {
+        Full_Stop()
+    }
 }
 // should be 90 degrees
 function Hard_Left () {
