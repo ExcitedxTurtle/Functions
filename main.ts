@@ -1,4 +1,4 @@
-let Distance = 0
+let Avoiding = 0
 let LFSR = 0
 let LFSL = 0
 function Full_Stop () {
@@ -18,8 +18,7 @@ function Soft_Left () {
 function Distance_Stop () {
     maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 50)
     basic.pause(200)
-    Distance = maqueen.Ultrasonic(PingUnit.Centimeters)
-    while (Distance < 10) {
+    while (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
         Full_Stop()
     }
 }
@@ -41,6 +40,11 @@ function Hard_Right () {
     basic.pause(100)
 }
 basic.forever(function () {
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) <= 10) {
+        Distance_Stop()
+    } else if (maqueen.Ultrasonic(PingUnit.Centimeters) > 10) {
+        Avoiding = 1
+    }
     LFSR = maqueen.readPatrol(maqueen.Patrol.PatrolRight)
     LFSL = maqueen.readPatrol(maqueen.Patrol.PatrolLeft)
     if (LFSL == 1 && LFSR == 1) {
