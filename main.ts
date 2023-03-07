@@ -39,10 +39,24 @@ function Hard_Right () {
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 100)
     basic.pause(100)
 }
+function Avoid () {
+    maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 50)
+    basic.pause(100)
+    Hard_Right()
+    while (Avoiding == 1) {
+        if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
+            Soft_Right()
+        } else {
+            Soft_Left()
+        }
+        if (maqueen.readPatrol(maqueen.Patrol.PatrolLeft) == 0 || maqueen.readPatrol(maqueen.Patrol.PatrolRight) == 0) {
+            Hard_Right()
+            Avoiding = 0
+        }
+    }
+}
 basic.forever(function () {
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) <= 10) {
-        Distance_Stop()
-    } else if (maqueen.Ultrasonic(PingUnit.Centimeters) > 10) {
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
         Avoiding = 1
     }
     LFSR = maqueen.readPatrol(maqueen.Patrol.PatrolRight)
