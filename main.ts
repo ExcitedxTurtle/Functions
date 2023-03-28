@@ -64,9 +64,9 @@ basic.forever(function () {
     if (LFSL == 1 && LFSR == 1) {
         Full_Forwards()
     } else if (LFSL == 1) {
-        Soft_Right()
-    } else if (LFSR == 1) {
         Soft_Left()
+    } else if (LFSR == 1) {
+        Soft_Right()
     } else {
         Full_Stop()
     }
