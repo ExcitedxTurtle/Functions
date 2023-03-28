@@ -6,13 +6,13 @@ function Full_Stop () {
     basic.pause(100)
 }
 function Full_Forwards () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 150)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 150)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 60)
     basic.pause(100)
 }
 function Soft_Left () {
     maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 30)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 20)
     basic.pause(100)
 }
 function Distance_Stop () {
@@ -24,19 +24,19 @@ function Distance_Stop () {
 }
 // should be 90 degrees
 function Hard_Left () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 100)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 60)
     basic.pause(100)
 }
 function Soft_Right () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 30)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 20)
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 60)
     basic.pause(100)
 }
 // should be 90 degrees
 function Hard_Right () {
-    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 100)
-    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 100)
+    maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
+    maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 60)
     basic.pause(100)
 }
 function Avoid () {
