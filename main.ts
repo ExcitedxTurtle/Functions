@@ -13,7 +13,6 @@ function Full_Forwards () {
 function Soft_Left () {
     maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 20)
-    basic.pause(100)
 }
 function Distance_Stop () {
     maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 50)
@@ -31,18 +30,18 @@ function Hard_Left () {
 function Soft_Right () {
     maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 20)
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, 60)
-    basic.pause(100)
 }
 // should be 90 degrees
 function Hard_Right () {
     maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 60)
     maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, 60)
-    basic.pause(100)
+    basic.pause(200)
 }
 function Avoid () {
     maqueen.motorRun(maqueen.Motors.All, maqueen.Dir.CCW, 50)
-    basic.pause(100)
+    basic.pause(200)
     Hard_Right()
+    Full_Forwards()
     while (Avoiding == 1) {
         if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
             Soft_Right()
@@ -58,6 +57,7 @@ function Avoid () {
 basic.forever(function () {
     if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
         Avoiding = 1
+        Avoid()
     }
     LFSR = maqueen.readPatrol(maqueen.Patrol.PatrolRight)
     LFSL = maqueen.readPatrol(maqueen.Patrol.PatrolLeft)
